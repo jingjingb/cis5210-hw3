@@ -74,7 +74,6 @@ class TilePuzzle(object):
         for move in ['up','down','left','right']:
             new_p = self.copy()
             if new_p.perform_move(move):
-                new_p.set_move(move)
                 yield move,new_p
 
     # Required
