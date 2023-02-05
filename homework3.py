@@ -76,23 +76,29 @@ class TilePuzzle(object):
             if new_p.perform_move(move):
                 yield move,new_p
 
-    # Required
+     # Required
     def find_solutions_iddfs(self):
-        is_found_solution = False
         limit = 0
-        while not is_found_solution:
-            for move in self.iddfs_helper(limit, []):
-                yield move
-                is_found_solution = True
-            limit += 1
+        is_solved = False
+        while True:
+            for val in self.iddfs_helper(limit, []):
+                if len(val) > 0:
+                    is_solved = True
+                    yield val
+            if is_solved:
+                break
+            else:
+                limit*=2
 
-    def iddfs_helper(self, limit, route):
-        if self.board == self.sol:
-            yield route
-        elif len(route) < limit:
-            for move, puzzle in self.successors():
-                for sol in puzzle.iddfs_helper(limit, route + [move]):
-                    yield sol
+    def iddfs_helper(self, limit, move):
+        if self.is_solved():
+            yield move
+        if limit == 0:
+            yield []
+        else:
+            for d, next in self.successors():
+                  for val in next.iddfs_helper(limit - 1, move + [d]):
+                        yield val
 
 
     def heuristic_md(self):
