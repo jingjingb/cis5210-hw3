@@ -323,16 +323,12 @@ def solve_distinct_disks(length, n):
 ############################################################
 
 # Just an approximation is fine.
-feedback_question_1 = 0
+feedback_question_1 = 24
 
 feedback_question_2 = """
-Type your response here.
-Your response may span multiple lines.
-Do not include these instructions in your response.
+The implementation of A* search.
 """
 
 feedback_question_3 = """
-Type your response here.
-Your response may span multiple lines.
-Do not include these instructions in your response.
+3 projects are too much for me in one week, two would be a proper workload.
 """
