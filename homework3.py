@@ -76,7 +76,7 @@ class TilePuzzle(object):
             if new_p.perform_move(move):
                 yield move,new_p
 
-    # Required
+     # Required
     def find_solutions_iddfs(self):
         limit = 0
         is_solved = False
@@ -99,6 +99,7 @@ class TilePuzzle(object):
             for d, next in self.successors():
                   for val in next.iddfs_helper(limit - 1, move + [d]):
                         yield val
+
 
     def heuristic_md(self):
       # manhattan distance
