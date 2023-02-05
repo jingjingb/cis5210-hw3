@@ -237,7 +237,7 @@ class solve_disks(object):
         self.length = length
         self.n = n
         if grid == 0 or len(grid) == 0:
-            self.grid = range(n) + [-1] * (length - n)
+            self.grid =  [i for i in range(n)] + [-1] * (length - n)
         elif len(grid) == length:
             self.grid = grid
         else:
