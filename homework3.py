@@ -9,8 +9,6 @@ student_name = "Jingjing Bai"
 ############################################################
 # Imports
 ############################################################
-
-# Include your imports here, if any are used.
 import random
 import copy
 import queue
@@ -22,18 +20,7 @@ import math
 
 
 def create_tile_puzzle(rows, cols):
-    board = []
-    new = []
-    cnt = 1
-    for i in range(0, rows):
-        for j in range(0, cols):
-            new.append(cnt)
-            cnt += 1
-        board.append(new)
-        new = []
-    board[rows - 1][cols - 1] = 0
-
-    return TilePuzzle(board)
+  return TilePuzzle([[row*cols + col + 1 if row*cols + col + 1<cols*rows else 0 for col in range(cols)] for row in range(rows)])
 
 
 class TilePuzzle(object):
@@ -208,10 +195,6 @@ class TilePuzzle(object):
            
 
 """
-def create_tile_puzzle(rows, cols):
-  return TilePuzzle([[row*cols + col + 1 if row*cols + col + 1<cols*rows else 0 for col in range(cols)] for row in range(rows)])
-
-
 class TilePuzzle(object):
     # Required
     def __init__(self, board):
