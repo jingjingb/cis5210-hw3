@@ -27,6 +27,7 @@ class TilePuzzle(object):
     # Required
     def __init__(self, board):
         self.board = [[board[row][col] for col in range(len(board[0]))] for row in range(len(board))]
+        self._TilePuzzle__board = board
         self.find_empty = False
         for row in range(len(board)):
             if self.find_empty:
